@@ -20,7 +20,18 @@
 <body>
 <h1 class="header">檔案管理練習</h1>
 <!----建立上傳檔案表單及相關的檔案資訊存入資料表機制----->
-
+<?php
+    include "function.php";
+    echo $_POST['name'];
+    echo '<br>';
+    dd($_FILES);
+    if($_FILES['img']['error'] == 0)
+    {//成功
+        $tmp_name = $_FILES['img']['tmp_name'];
+        $tmp_fileName = $_FILES['img']['name'];
+        move_uploaded_file($tmp_name, "./files/".$tmp_fileName);
+    }
+?>
 
 
 
